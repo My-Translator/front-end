@@ -1,25 +1,65 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import './App.css';
+import NavBar from './components/NavBar';
+import WordSpace from './components/WordSpace';
+import Footer from './components/Footer';
+import AddingModal from './components/AddingModal';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+export default function App() {
+
+  const API = 'http://localhost:5000';
+
+  const [word, setWord] = useState();
+  const [showModal, setShowModal] = useState(false);
+
+
+  useEffect(() => {
+    function fetchData() {
+      axios.get(`${API}/getAllWords`)
+        .then(res => {
+          setWord(res.data);
+          console.log(res.data);
+        })
+        .catch(err => console.log(err));
+    }
+    fetchData();
+  }, [])
+
+  const handleSubmit = (word, translation) => {
+    axios.post(`${API}/newWord`, { word, translation })
+      .then(res => {
+        setWord(res.data);
+      })
+      .catch(err => console.log(err));
+  }
+
+  const handleShowModal=()=>{
+    setShowModal(true);
+  }
+  const handleClose = () => {
+    setShowModal(false);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className='app'>
 
-export default App;
+      <NavBar setShowModal={setShowModal} />
+
+      <WordSpace word={word} />
+      <Button id='add_button' variant="success" onClick={handleShowModal}>Add Word</Button>
+
+      <Footer />
+
+      <AddingModal showModal={showModal} handleClose={handleClose} handleSubmit={handleSubmit} />
+
+
+    </div>
+  )
+}
