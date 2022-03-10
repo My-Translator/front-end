@@ -15,10 +15,9 @@
 }
 
 .word_space_body{
-    /* background-color: red; */
-    min-height: 500px;
-    /* border: 1px solid black; */
     margin-bottom: 20px;
+    max-height: 500px;
+    overflow: auto;
 }
 .word_space_item{
     display: flex;
