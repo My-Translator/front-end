@@ -15,7 +15,7 @@ export default function WordSpace(props) {
             {
                 props.word && props.word.map((word , idx) => {
                     return (
-                        <div key={idx} className='word_space_item'>
+                        <div onDoubleClick={()=>props.handleShowUpdateModal(word)} key={idx} className='word_space_item'>
                             <div className='word_space_item_word'>{idx+1}- {word.word}</div>
                             <div className='word_space_item_translation'>{word.translation}</div>
                         </div>

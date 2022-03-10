@@ -6,11 +6,13 @@
 .word_space_header{
     display: flex;
     justify-content: space-around;
+    
 }
 
 .word_space_header h1{
     width: 50%;
     text-align: start;
+    border-bottom: 1px solid black double;
     /* padding-left: 20px; */
 }
 
@@ -28,6 +30,8 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
+
 
 .word_space_item div{
     width: 50%;
