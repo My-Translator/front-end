@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
 
-  const API = 'https://hema-translator.herokuapp.com/';
+  const API = 'https://hema-translator.herokuapp.com';
 
   const [word, setWord] = useState();
   const [showModal, setShowModal] = useState(false);
