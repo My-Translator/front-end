@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal,Form,Button } from "react-bootstrap"
+import "./AddingModal.css";
 
 export default function UpdateModal(props) {
 
@@ -25,8 +26,8 @@ export default function UpdateModal(props) {
         props.handleClose();
     }
   return (
-    <div>
-        <Modal show={props.showUpdateModal} onHide={props.handleClose}>
+    <div >
+    <Modal className='modal_container'  show={props.showUpdateModal} onHide={props.handleClose}>
                 <Modal.Header>
                     <i onClick={props.handleClose} className="fas fa-times"></i>
                     <Modal.Title >Update Word</Modal.Title>

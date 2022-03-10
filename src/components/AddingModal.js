@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal,Form,Button } from "react-bootstrap"
+import { Modal,Form,Button } from "react-bootstrap";
+import "./AddingModal.css";
 
 export default function AddingModal(props) {
 
@@ -11,8 +12,8 @@ const handleSubmit = (e)=>{
     props.handleClose();
 }
     return (
-        <div>
-            <Modal show={props.showModal} onHide={props.handleClose}>
+        <div >
+            <Modal className='modal_container' show={props.showModal} onHide={props.handleClose}>
                 <Modal.Header>
                     <i onClick={props.handleClose} className="fas fa-times"></i>
                     <Modal.Title >Add Word</Modal.Title>

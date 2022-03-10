@@ -1,0 +1,17 @@
+/* .fade  .modal .show {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    margin-top: 150px;
+}
+
+ .modal-dialog {
+    max-width: 80%;
+    margin-top: 150px;
+
+} */
+
+.modal_container{
+    margin-top: 150px;
+}
